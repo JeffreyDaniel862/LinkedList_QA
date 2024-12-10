@@ -67,6 +67,20 @@ public class CustomLinkedList {
         this.size++;
     }
 
+    public void recursiveInsert (int index, int value) {
+        this.head = this.recursiveInsert(index, value, this.head);
+    }
+
+    private Node recursiveInsert (int index, int value, Node current) {
+        if (index == 0) {
+            Node newNode = new Node(value, current);
+            this.size++;
+            return newNode;
+        }
+        current.next = recursiveInsert(index - 1, value, current.next);
+        return current;
+    }
+
     public int popFirst() {
         if (this.isEmpty()) {
             return -1;
