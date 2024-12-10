@@ -3,12 +3,20 @@ package Implementation;
 public class Main {
     public static void main(String[] args) {
         // Calling custom linked list without tail
-//        Implementation.CustomLinkedList list = new Implementation.CustomLinkedList();
+        CustomLinkedList list = new CustomLinkedList();
+        CustomLinkedList list1 = new CustomLinkedList();
 //        list.prepend(4);
 //        list.prepend(3);
 //        list.prepend(2);
 //        list.prepend(1);
-//        list.append(8);
+        list.append(1);
+        list.append(1);
+        list1.append(2);
+        list1.append(5);
+        list1.append(7);
+        CustomLinkedList list3 = list.mergeLists(list, list1);
+        list3.display();
+//        list.insert(4,3);
 //        list.insert(4, 5);
 //        list.insert(5, 6);
 //        list.insert(6, 7);
@@ -44,12 +52,12 @@ public class Main {
 //        dobList.display();
 //        dobList.displayReverse();
 
-        CircularLinkedList list = new CircularLinkedList();
-        list.insert(12);
-        list.insert(34);
-        list.insert(56);
-        list.insert(78);
-        list.insert(90);
-        list.display();
+//        CircularLinkedList list = new CircularLinkedList();
+//        list.insert(12);
+//        list.insert(34);
+//        list.insert(56);
+//        list.insert(78);
+//        list.insert(90);
+//        list.display();
     }
 }
