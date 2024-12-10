@@ -136,4 +136,19 @@ public class CustomLinkedList {
         }
         System.out.print("END");
     }
+
+    // QUESTIONS
+
+    // QA - 1) Remove Duplicates from Sorted List
+    // Question link : https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+
+    public void removeDuplicates() {
+        Node current = this.head;
+        while (current != null && current.next != null) {
+            if (current.value == current.next.value) {
+                current.next = current.next.next;
+            } else current = current.next;
+        }
+        this.display();
+    }
 }
