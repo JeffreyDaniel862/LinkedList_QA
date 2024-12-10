@@ -151,4 +151,37 @@ public class CustomLinkedList {
         }
         this.display();
     }
+
+    //QA - 2 Remove Duplicates from Sorted List II
+    // https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/
+    public void makeListDistinct() {
+        Node ancestor = null;
+        Node previous = this.head;
+        if (previous == null || previous.next == null) return;
+        Node current = previous.next;
+        while (current != null) {
+            if (previous.value == current.value) {
+                if (previous == this.head) {
+                    previous = getCurrent(current).next;
+                    this.head = previous;
+                } else {
+                    previous = getCurrent(current).next;
+                    ancestor.next = previous;
+                }
+                if (previous != null) current = previous.next;
+                else current = null;
+            } else {
+                ancestor = previous;
+                previous = current;
+                current = current.next;
+            }
+
+        }
+    }
+    private Node getCurrent(Node current) {
+        while (current.next != null && current.value == current.next.value) {
+            current = current.next;
+        }
+        return current;
+    }
 }
