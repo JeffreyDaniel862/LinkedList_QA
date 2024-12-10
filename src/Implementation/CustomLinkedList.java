@@ -184,4 +184,35 @@ public class CustomLinkedList {
         }
         return current;
     }
+
+    // QA - 3 Merge Two Sorted Lists
+    // https://leetcode.com/problems/merge-two-sorted-lists/description/
+
+    public CustomLinkedList mergeLists(CustomLinkedList list, CustomLinkedList list2) {
+        Node head1 = list.head;
+        Node head2 = list2.head;
+        CustomLinkedList answer = new CustomLinkedList();
+
+        while (head1 != null && head2 != null) {
+            if (head1.value <= head2.value) {
+                answer.append(head1.value);
+                head1 = head1.next;
+            } else {
+                answer.append(head2.value);
+                head2 = head2.next;
+            }
+        }
+        if (head1 == null) {
+            while (head2 != null) {
+                answer.append(head2.value);
+                head2 = head2.next;
+            }
+        } else {
+            while (head1 != null) {
+                answer.append(head1.value);
+                head1 = head1.next;
+            }
+        }
+        return answer;
+    }
 }
