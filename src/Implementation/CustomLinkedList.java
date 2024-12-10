@@ -36,6 +36,10 @@ public class CustomLinkedList {
     public void append(int value) {
         Node newNode = new Node(value);
         Node current = this.head;
+        if (current == null) {
+            this.head = newNode;
+            return;
+        }
         while (current.next != null) current = current.next;
         current.next = newNode;
         this.size++;
