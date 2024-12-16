@@ -3,19 +3,19 @@ package Implementation;
 public class Main {
     public static void main(String[] args) {
         // Calling custom linked list without tail
-        CustomLinkedList list = new CustomLinkedList();
-        CustomLinkedList list1 = new CustomLinkedList();
+//        CustomLinkedList list = new CustomLinkedList();
+//        CustomLinkedList list1 = new CustomLinkedList();
 //        list.prepend(4);
 //        list.prepend(3);
 //        list.prepend(2);
 //        list.prepend(1);
-        list.append(1);
-        list.append(1);
-        list1.append(2);
-        list1.append(5);
-        list1.append(7);
-        CustomLinkedList list3 = list.mergeLists(list, list1);
-        list3.display();
+//        list.append(1);
+//        list.append(1);
+//        list1.append(2);
+//        list1.append(5);
+//        list1.append(7);
+//        CustomLinkedList list3 = list.mergeLists(list, list1);
+//        list3.display();
 //        list.insert(4,3);
 //        list.insert(4, 5);
 //        list.insert(5, 6);
@@ -59,5 +59,33 @@ public class Main {
 //        list.insert(78);
 //        list.insert(90);
 //        list.display();
+        Solution sol = new Solution();
+        System.out.println(sol.isHappy(19));
+    }
+}
+
+// LeetCode question (Google)
+// https://leetcode.com/problems/happy-number/
+class Solution {
+    public boolean isHappy(int n) {
+        int slow = n;
+        int fast = n;
+
+        do {
+            slow = sumOfSquare(slow);
+            fast = sumOfSquare(sumOfSquare(fast));
+        } while (slow != fast);
+
+        return slow == 1;
+    }
+    private int sumOfSquare(int num) {
+        int ans = 0;
+        while (num > 0) {
+            int rem = num % 10;
+            ans = ans + (rem * rem);
+            num /= 10;
+        }
+        System.out.println(ans);
+        return ans;
     }
 }
